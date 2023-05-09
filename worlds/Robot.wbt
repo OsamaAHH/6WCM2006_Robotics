@@ -8,11 +8,21 @@ WorldInfo {
 }
 Viewpoint {
   orientation -0.5773502691896257 0.5773502691896257 0.5773502691896257 2.0944
-  position 0 0 10
+  position -2.3036649486124802e-05 -2.303671462524614e-05 1.8530201887847497
 }
 TexturedBackground {
 }
 TexturedBackgroundLight {
 }
 RectangleArena {
+}
+Robot {
+  translation 0 0 -40611.162378240915
+  children [
+    Shape {
+    }
+  ]
+  physics Physics {
+  }
+  linearVelocity 0 0 -892.4745600000587
 }
