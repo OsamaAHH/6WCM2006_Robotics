@@ -17,12 +17,13 @@ TexturedBackgroundLight {
 RectangleArena {
 }
 Robot {
-  translation 0 0 -40611.162378240915
+  translation 0 0 -92848.49510400544
   children [
     Shape {
     }
   ]
   physics Physics {
   }
-  linearVelocity 0 0 -892.4745600000587
+  controller "first_obd_controller"
+  linearVelocity 0 0 -1349.5420800001355
 }
