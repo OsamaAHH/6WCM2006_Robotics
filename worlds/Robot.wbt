@@ -7,8 +7,8 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/project
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.5773502691896257 0.5773502691896257 0.5773502691896257 2.0944
-  position -2.3036649486124802e-05 -2.303671462524614e-05 1.8530201887847497
+  orientation -0.050378046877321815 0.002289986874741513 0.9987275946688065 3.0509146646548153
+  position 0.48138003576627175 -0.03687568369994272 0.10745251688084721
 }
 TexturedBackground {
 }
@@ -17,13 +17,40 @@ TexturedBackgroundLight {
 RectangleArena {
 }
 Robot {
-  translation 0 0 -92848.49510400544
+  translation 0 -0.01 0.05
   children [
     Shape {
+      appearance PBRAppearance {
+        baseColor 0.2 0.6 0.5
+        metalness 0
+      }
+      geometry Cylinder {
+        height 0.1
+        radius 0.05
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+      }
+      device [
+        RotationalMotor {
+          name "wheel1"
+        }
+      ]
+      endPoint Solid {
+        rotation 1 0 0 0
+        scale 0.3 0.3 0.3
+        children [
+          DEF Wheel Shape {
+            appearance PBRAppearance {
+            }
+            geometry Cylinder {
+              height 0.1
+              radius 0.05
+            }
+          }
+        ]
+      }
     }
   ]
-  physics Physics {
-  }
-  controller "first_obd_controller"
-  linearVelocity 0 0 -1349.5420800001355
 }
