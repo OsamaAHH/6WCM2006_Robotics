@@ -7,8 +7,8 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/project
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.050378046877321815 0.002289986874741513 0.9987275946688065 3.0509146646548153
-  position 0.48138003576627175 -0.03687568369994272 0.10745251688084721
+  orientation 0.35720384331342114 -0.02576073293195797 -0.9336711406919083 3.276050264949714
+  position 0.7025842427082403 -0.31993649518519174 0.9009857603885822
 }
 TexturedBackground {
 }
@@ -19,14 +19,13 @@ RectangleArena {
 Robot {
   translation 0 -0.01 0.05
   children [
-    Shape {
+    DEF Body Shape {
       appearance PBRAppearance {
         baseColor 0.2 0.6 0.5
         metalness 0
       }
-      geometry Cylinder {
-        height 0.1
-        radius 0.05
+      geometry Box {
+        size 0.1 0.1 0.05
       }
     }
     HingeJoint {
@@ -38,15 +37,15 @@ Robot {
         }
       ]
       endPoint Solid {
-        rotation 1 0 0 0
-        scale 0.3 0.3 0.3
+        translation 4.0450986678541455e-17 0.05999602321367749 -7.190587383521972e-06
+        rotation 1 -5.937369089988011e-16 -5.77152022682736e-16 1.5708
         children [
           DEF Wheel Shape {
             appearance PBRAppearance {
             }
             geometry Cylinder {
-              height 0.1
-              radius 0.05
+              height 0.01
+              radius 0.03
             }
           }
         ]
