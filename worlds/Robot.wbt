@@ -3,33 +3,42 @@
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackground.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/Parquetry.proto"
 
 WorldInfo {
 }
 Viewpoint {
-  orientation 0.35720384331342114 -0.02576073293195797 -0.9336711406919083 3.276050264949714
-  position 0.7025842427082403 -0.31993649518519174 0.9009857603885822
+  orientation -0.4531421516943552 -0.021047783751925044 0.891189755976213 3.2243405520848585
+  position 0.3917725112280792 -0.02354471338224584 0.4952152509573814
 }
 TexturedBackground {
 }
 TexturedBackgroundLight {
 }
 RectangleArena {
+  floorAppearance Parquetry {
+    type "light strip"
+  }
 }
 Robot {
   translation 0 -0.01 0.05
+  rotation 0 1 0 0
   children [
-    DEF Body Shape {
+    DEF Innerbody Shape {
       appearance PBRAppearance {
         baseColor 0.2 0.6 0.5
         metalness 0
       }
       geometry Box {
-        size 0.1 0.1 0.05
+        size 0.1 0.1 0.04
       }
+    }
+    Shape {
     }
     HingeJoint {
       jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor 4.0451e-17 0.059996 -7.19059e-06
       }
       device [
         RotationalMotor {
@@ -37,11 +46,13 @@ Robot {
         }
       ]
       endPoint Solid {
-        translation 4.0450986678541455e-17 0.05999602321367749 -7.190587383521972e-06
+        translation -9e-08 0.056 -1.122e-05
         rotation 1 -5.937369089988011e-16 -5.77152022682736e-16 1.5708
         children [
           DEF Wheel Shape {
             appearance PBRAppearance {
+              baseColor 0.2 0.1 0.1
+              metalness 0
             }
             geometry Cylinder {
               height 0.01
@@ -49,6 +60,34 @@ Robot {
             }
           }
         ]
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor -9e-08 -0.060004 -1.16604e-05
+      }
+      device [
+        RotationalMotor {
+          name "wheel2"
+        }
+      ]
+      endPoint Solid {
+        translation -9e-08 -0.056 -3.65633e-05
+        rotation 1 -5.937369089988011e-16 -5.77152022682736e-16 1.5708
+        children [
+          DEF Wheel Shape {
+            appearance PBRAppearance {
+              baseColor 0.2 0.1 0.1
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.01
+              radius 0.03
+            }
+          }
+        ]
+        name "solid(1)"
       }
     }
   ]

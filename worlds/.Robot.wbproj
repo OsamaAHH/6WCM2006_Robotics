@@ -4,6 +4,9 @@ simulationViewPerspectives: 000000ff00000001000000020000016c000004a0010000000201
 sceneTreePerspectives: 000000ff00000001000000030000001e00000100000000fa0100000002010000000201
 maximizedDockId: -1
 centralWidgetVisible: 1
+projectionMode: PERSPECTIVE
+renderingMode: WIREFRAME
 orthographicViewHeight: 1
 textFiles: 1 "C:/Program Files/Webots/projects/robots/gctronic/e-puck/controllers/e-puck_line_demo/e-puck_line_demo.c" "controllers/first_obd_controller/first_obd_controller.py"
+globalOptionalRendering: JointAxes::CoordinateSystem::ContactPoints
 consoles: Console:All:All
