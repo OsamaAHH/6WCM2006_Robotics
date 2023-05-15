@@ -8,14 +8,15 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/project
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.4531421516943552 -0.021047783751925044 0.891189755976213 3.2243405520848585
-  position 0.3917725112280792 -0.02354471338224584 0.4952152509573814
+  orientation -0.3291357485251547 -0.00809810775556088 0.9442478910188603 3.1880577350970256
+  position 0.3845563741064907 -0.025085956133022926 0.3547695634852262
 }
 TexturedBackground {
 }
 TexturedBackgroundLight {
 }
 RectangleArena {
+  translation 0 0 0.02
   floorAppearance Parquetry {
     type "light strip"
   }
@@ -30,7 +31,7 @@ Robot {
         metalness 0
       }
       geometry Box {
-        size 0.1 0.1 0.04
+        size 0.1 0.1 0.053
       }
     }
     Shape {
@@ -90,5 +91,47 @@ Robot {
         name "solid(1)"
       }
     }
+    TouchSensor {
+      translation 0.05 0.05 0
+      rotation 0.3574040741052406 -0.8628571789074145 -0.35740707410586264 -1.7177753071795863
+      children [
+        DEF Sensor Shape {
+          appearance PBRAppearance {
+            baseColor 0.4 0.2 0.1
+            metalness 0
+          }
+          geometry DEF Sensor Cone {
+            bottomRadius 0.01
+            height 0.01
+          }
+        }
+      ]
+      name "touch sensor 1"
+      physics Physics {
+      }
+    }
+    TouchSensor {
+      translation 0.05 -0.05 -9.99999e-08
+      rotation 0.35740699927911007 0.8628559982596194 -0.35740699927911007 1.71778
+      children [
+        DEF Sensor Shape {
+          appearance PBRAppearance {
+            baseColor 0.4 0.2 0.1
+            metalness 0
+          }
+          geometry Cone {
+            bottomRadius 0.01
+            height 0.01
+          }
+        }
+      ]
+      name "touch sensor 2"
+      physics Physics {
+      }
+    }
   ]
+  boundingObject USE Innerbody
+  physics Physics {
+  }
+  controller "first_obd_controller"
 }
