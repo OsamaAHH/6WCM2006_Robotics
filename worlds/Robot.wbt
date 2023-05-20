@@ -8,8 +8,8 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/project
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.3291357485251547 -0.00809810775556088 0.9442478910188603 3.1880577350970256
-  position 0.3845563741064907 -0.025085956133022926 0.3547695634852262
+  orientation -0.18911301291294058 -0.03825555420043472 0.9812098556984674 3.533490831580436
+  position 1.136314940477286 0.4674077317003685 0.6174184190334224
 }
 TexturedBackground {
 }
@@ -61,6 +61,9 @@ Robot {
             }
           }
         ]
+        boundingObject USE Wheel
+        physics Physics {
+        }
       }
     }
     HingeJoint {
@@ -89,6 +92,9 @@ Robot {
           }
         ]
         name "solid(1)"
+        boundingObject USE Wheel
+        physics Physics {
+        }
       }
     }
     TouchSensor {
@@ -97,16 +103,16 @@ Robot {
       children [
         DEF Sensor Shape {
           appearance PBRAppearance {
-            baseColor 0.4 0.2 0.1
+            baseColor 0.3 0.6 1
             metalness 0
           }
-          geometry DEF Sensor Cone {
-            bottomRadius 0.01
-            height 0.01
+          geometry Sphere {
+            radius 0.007
           }
         }
       ]
       name "touch sensor 1"
+      boundingObject USE Sensor
       physics Physics {
       }
     }
@@ -116,16 +122,15 @@ Robot {
       children [
         DEF Sensor Shape {
           appearance PBRAppearance {
-            baseColor 0.4 0.2 0.1
-            metalness 0
+            baseColor 0.3 0.6 1
           }
-          geometry Cone {
-            bottomRadius 0.01
-            height 0.01
+          geometry Sphere {
+            radius 0.007
           }
         }
       ]
       name "touch sensor 2"
+      boundingObject USE Sensor
       physics Physics {
       }
     }
