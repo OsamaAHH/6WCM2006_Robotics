@@ -4,12 +4,13 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/floors/protos/RectangleArena.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/Parquetry.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/obstacles/protos/OilBarrel.proto"
 
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.18911301291294058 -0.03825555420043472 0.9812098556984674 3.533490831580436
-  position 1.136314940477286 0.4674077317003685 0.6174184190334224
+  orientation -0.11348856158815793 0.724453561455446 0.6799171888422672 0.4529244975059844
+  position -0.6538187543532322 -0.07192341077473446 0.3230579826555559
 }
 TexturedBackground {
 }
@@ -21,9 +22,44 @@ RectangleArena {
     type "light strip"
   }
 }
+OilBarrel {
+  translation 0 -0.08 0.05
+  height 0.09
+  radius 0.03
+}
+OilBarrel {
+  translation -0.32 -0.26 0.05
+  name "oil barrel(1)"
+  height 0.09
+  radius 0.03
+}
+OilBarrel {
+  translation -0.32 0.21 0.05
+  name "oil barrel(2)"
+  height 0.09
+  radius 0.03
+}
+OilBarrel {
+  translation -0.03 0.29 0.05
+  name "oil barrel(3)"
+  height 0.09
+  radius 0.03
+}
+OilBarrel {
+  translation 0.26 -0.18 0.05
+  name "oil barrel(4)"
+  height 0.09
+  radius 0.03
+}
+OilBarrel {
+  translation 0.26 0.13 0.05
+  name "oil barrel(5)"
+  height 0.09
+  radius 0.03
+}
 Robot {
-  translation 0 -0.01 0.05
-  rotation 0 1 0 0
+  translation 0.4146893436344702 0.40989359841979467 0.0497880367668506
+  rotation -0.0006524721202125813 -0.005933421093183668 0.9999821842384309 -2.739575307179586
   children [
     DEF Innerbody Shape {
       appearance PBRAppearance {
@@ -38,17 +74,18 @@ Robot {
     }
     HingeJoint {
       jointParameters HingeJointParameters {
+        position 24.340659795351968
         axis 0 1 0
         anchor 4.0451e-17 0.059996 -7.19059e-06
       }
       device [
         RotationalMotor {
-          name "wheel1"
+          name "right_wheel"
         }
       ]
       endPoint Solid {
-        translation -9e-08 0.056 -1.122e-05
-        rotation 1 -5.937369089988011e-16 -5.77152022682736e-16 1.5708
+        translation 2.8049886164237698e-06 0.056 -1.0084771025794221e-05
+        rotation 0.8607679372182091 -0.3599149945531775 0.35991631659719936 1.7201717166101251
         children [
           DEF Wheel Shape {
             appearance PBRAppearance {
@@ -68,17 +105,18 @@ Robot {
     }
     HingeJoint {
       jointParameters HingeJointParameters {
+        position 31.289479685863256
         axis 0 1 0
         anchor -9e-08 -0.060004 -1.16604e-05
       }
       device [
         RotationalMotor {
-          name "wheel2"
+          name "left_wheel"
         }
       ]
       endPoint Solid {
-        translation -9e-08 -0.056 -3.65633e-05
-        rotation 1 -5.937369089988011e-16 -5.77152022682736e-16 1.5708
+        translation 3.0505087935661605e-06 -0.056 -3.636448130102257e-05
+        rotation -0.9960160719471467 0.06305535351461704 -0.06305558513028756 4.708393432776105
         children [
           DEF Wheel Shape {
             appearance PBRAppearance {
@@ -98,8 +136,8 @@ Robot {
       }
     }
     TouchSensor {
-      translation 0.05 0.05 0
-      rotation 0.3574040741052406 -0.8628571789074145 -0.35740707410586264 -1.7177753071795863
+      translation 0.050048684571928015 0.05003524219977229 1.6127656704667537e-05
+      rotation -0.35740407410515873 0.8628571789075651 0.3574070741055806 1.717775307178652
       children [
         DEF Sensor Shape {
           appearance PBRAppearance {
@@ -111,14 +149,33 @@ Robot {
           }
         }
       ]
-      name "touch sensor 1"
+      name "left_ts"
       boundingObject USE Sensor
       physics Physics {
       }
     }
     TouchSensor {
-      translation 0.05 -0.05 -9.99999e-08
-      rotation 0.35740699927911007 0.8628559982596194 -0.35740699927911007 1.71778
+      translation 0.0500486 3.53e-05 1.60667e-05
+      rotation 1.28577e-06 1 -6.98158e-08 1.5708
+      children [
+        DEF Sensor Shape {
+          appearance PBRAppearance {
+            baseColor 0.3 0.6 1
+            metalness 0
+          }
+          geometry Sphere {
+            radius 0.007
+          }
+        }
+      ]
+      name "center_ts"
+      boundingObject USE Sensor
+      physics Physics {
+      }
+    }
+    TouchSensor {
+      translation 0.050044095503682884 -0.0500414331794099 -1.7686778554869276e-05
+      rotation 0.35740699927912734 0.8628559982596061 -0.35740699927912467 1.7177799999999965
       children [
         DEF Sensor Shape {
           appearance PBRAppearance {
@@ -129,7 +186,7 @@ Robot {
           }
         }
       ]
-      name "touch sensor 2"
+      name "right_ts"
       boundingObject USE Sensor
       physics Physics {
       }
